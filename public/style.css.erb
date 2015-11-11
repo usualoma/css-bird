@@ -1,0 +1,489 @@
+<% load './public/constant.rb' %>
+
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.finish-input {
+  display: none;
+}
+
+.jump-input {
+  display: none;
+}
+
+.gameover {
+  z-index: 99998;
+}
+
+.thanks {
+  z-index: 99999;
+}
+
+.gameover, .thanks {
+  position: absolute;
+  top: -<%= ::SCREEN_HEIGHT %>px;
+  width: 1000px;
+  height: <%= ::SCREEN_HEIGHT*3 %>px;
+  display: none;
+}
+
+.finish-label {
+  display: block;
+  width: 1000px;
+  height: <%= ::SCREEN_HEIGHT*3 %>px;
+}
+
+.finish-div {
+  position: absolute;
+  width: <%= SCREEN_WIDTH %>px;
+  height: <%= SCREEN_HEIGHT*3 %>px;
+  overflow: hidden;
+}
+
+.gameover .finish-div {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.thanks .finish-div {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#gameover-input:checked ~ #screen .gameover.last,
+#thanks-input:checked ~ #screen .thanks.last,
+.gameover:hover, .thanks:hover
+{
+  display: block;
+}
+
+.result {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.finish-div form {
+  margin-top: 20px;
+}
+
+.finish-div button {
+  background: white;
+  padding: 5px 30px;
+  font-size: 120%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.finish-div button:hover {
+  background: #eee;
+}
+
+@keyframes finish {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: <%= SCREEN_HEIGHT*3 %>px;
+  }
+}
+
+.finish-div:hover .finish-content {
+  position: absolute;
+  background: white;
+  width: <%= SCREEN_WIDTH %>px;
+  padding: 50px 0;
+  text-align: center;
+  animation-name: finish;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.finish-content:hover {
+  animation-play-state: paused;
+}
+
+#gameover-input:checked ~ #screen .tube,
+#thanks-input:checked ~ #screen .tube,
+#gameover-input:checked ~ #screen .tube-collision,
+#thanks-input:checked ~ #screen .tube-collision,
+#gameover-input:checked ~ #screen .jump-layer,
+#thanks-input:checked ~ #screen .jump-layer,
+#gameover-input:checked ~ #screen .goal-collision,
+#thanks-input:checked ~ #screen .goal-collision,
+#gameover-input:checked ~ #screen #congrat-message,
+#thanks-input:checked ~ #screen #congrat-message,
+#gameover-input:checked ~ #screen #bird,
+#thanks-input:checked ~ #screen #bird {
+  animation-play-state: paused !important;
+}
+
+
+.ground-collision {
+  position: absolute;
+  top: <%= - ::SCREEN_HEIGHT - (((::SCREEN_HEIGHT + 26) / 2 / 1.3) - ::GROUND_HEIGHT) - 26 %>px;
+  left: <%= -::SCREEN_WIDTH %>px;
+  width: <%= ::SCREEN_WIDTH * 2 %>px;
+  height: <%= ::SCREEN_HEIGHT %>px;
+  background: black;
+  background: transparent;
+}
+
+.ground-collision:hover ~ .gameover,
+.tube-collision:hover ~ .gameover
+{
+  display: block;
+}
+
+#congrat-message {
+  position: absolute;
+  left: 700px;
+  width: 200px;
+  top: 50px;
+  height: 200px;
+  background: black;
+  background: transparent;
+  color: white;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 200%;
+  line-height: 0.9em;
+}
+
+@keyframes congrat-message {
+  0% {
+    left: 700px;
+  }
+  100% {
+    left: -1300px;
+    animation-timing-function: linear;
+  }
+}
+
+.jump-input-0:checked ~ #screen #congrat-message {
+  animation-name: congrat-message;
+  animation-duration: 30s;
+}
+
+.goal-collision {
+  position: absolute;
+  left: 700px;
+  width: 1000px;
+  top: -<%= ::SCREEN_HEIGHT %>px;
+  height: <%= ::SCREEN_HEIGHT * 2 %>px;
+  background: black;
+  background: transparent;
+}
+
+@keyframes goal {
+  0% {
+    left: 700px;
+  }
+  100% {
+    left: -1300px;
+    animation-timing-function: linear;
+  }
+}
+
+.jump-input-0:checked ~ #screen .goal-collision {
+  animation-name: goal;
+  animation-duration: 30s;
+}
+
+.goal-collision:hover ~ .thanks {
+  display: block;
+}
+
+
+#bird {
+  position: absolute;
+  top: <%= (::SCREEN_HEIGHT - 26) / 2 / 1.3 %>px;
+  left: <%= (::SCREEN_WIDTH - 36) / 2 / 2 %>px;
+  width: 36px;
+  height: 26px;
+}
+
+@keyframes bird-image {
+  0%   {
+    background-position: 0     0;
+  }
+  100% {
+    background-position: -108px 0;
+  }
+}
+
+#bird-image {
+  background-image: url(./images/bird.png);
+  width: 36px;
+  height: 26px;
+  animation: bird-image 500ms steps(3) 0s infinite;
+}
+
+.jump-label {
+  position: absolute;
+  top: <%= - ::SCREEN_HEIGHT %>px;
+  left: 0;
+  width: <%= ::SCREEN_WIDTH %>px;
+  height: <%= ::SCREEN_HEIGHT * 2 %>px;
+  z-index: 0;
+}
+
+#screen {
+  position: relative;
+  background-image: url(./images/bg.png);
+  position: relative;
+  width: <%= ::SCREEN_WIDTH %>px;
+  height: <%= ::SCREEN_HEIGHT %>px;
+  overflow: visible;
+}
+
+@keyframes ground {
+  0% {
+    background-position: <%= ::SCREEN_WIDTH %>px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+#ground {
+  background-image: url(./images/ground.png);
+  background-repeat: repeat;
+  position: absolute;
+  bottom: 0;
+  width: <%= ::SCREEN_WIDTH %>px;
+  height: <%= ::GROUND_HEIGHT %>px;
+  animation-name: ground;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#screen .jump-layer {
+  position: relative;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* http://matthewlein.com/ceaser/ */
+@keyframes jump {
+  0% {
+    top: 0;
+  }
+  15% {
+    top: -25px;
+    animation-timing-function: cubic-bezier(0.490, 1.035, 1.000, 1.000);
+  }
+  100% {
+    top: 300px;
+    animation-timing-function: cubic-bezier(0.315, -0.020, 0.240, 1.200);
+  }
+}
+
+<% [0,1].each do |i| %>
+@keyframes bird-jump-<%= i %> {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(-20deg);
+  }
+  15% {
+    transform: rotate(-20deg);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+<% end %>
+
+.jump-input-0:checked ~ #screen #jump-layer-0 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+.jump-input-0:checked ~ #jump-input-1:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+<% 0.upto ::JUMP_LAYERS do |i| %>
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-<%= i %>:checked ~ #jump-input-<%= i+1 %>:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-<%= i % 2 %>;
+  animation-duration: 2s;
+}
+
+#jump-input-<%= i %>:checked ~ #screen #jump-layer-<%= i %> {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-<%= i+1 %>:checked ~ #screen #jump-layer-<%= i %> {
+  animation-play-state: paused;
+}
+<% end %>
+
+<% 1.upto ::JUMP_LAYERS do |i| %>
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-<%= i-1 %>:checked ~ #screen #jump-label-<%= i %> {
+  background: white;
+  background: transparent;
+  z-index: <%= 1000+i %>;
+}
+<% end %>
+
+
+.collision-group {
+  overflow: visible;
+  position: relative;
+  top: <%= ::SCREEN_HEIGHT %>px;
+}
+<% 0.upto(::SCREEN_HEIGHT / ::MESH_UNIT) do |i| %>
+<% 0.upto(::SCREEN_WIDTH / ::MESH_UNIT) do |j| %>
+#mesh-<%= i %>-<%= j %> {
+  position: absolute;
+  width: <%= ::MESH_UNIT %>px;
+  height: <%= ::MESH_UNIT %>px;
+  top: <%= i * ::MESH_UNIT %>px;
+  left: <%= j * ::MESH_UNIT %>px;
+  z-index: 9999;
+}
+#jump-input-0-<%= i %>-<%= j %>:checked ~ #screen .collision-group {
+  top: <%= ::SCREEN_HEIGHT + (i - 1 + 0.5) * ::MESH_UNIT.to_f %>px;
+  left: <%= (j - 1 + 0.5) * ::MESH_UNIT.to_f %>px;
+}
+
+#jump-input-0-<%= i %>-<%= j %>:checked ~ #screen .gameover,
+#jump-input-0-<%= i %>-<%= j %>:checked ~ #screen .thanks
+{
+  top: <%= - ( ::SCREEN_HEIGHT + (i - 1 + 0.5) * ::MESH_UNIT.to_f ) %>px;
+  left: <%= - ( (j - 1 + 0.5) * ::MESH_UNIT.to_f ) %>px;
+}
+<% end %>
+<% end %>
+
+.jump-input-0:checked ~ #screen .mesh {
+  display: none;
+}
+
+.jump-label-0 {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#tube-container {
+  position: relative;
+  overflow: hidden;
+  width: <%= ::SCREEN_WIDTH %>px;
+  height: <%= ::SCREEN_HEIGHT %>px;
+  background: transparent;
+}
+
+<% ::TUBES.each_with_index do |t, i| %>
+@keyframes tube-<%= i %> {
+  0% {
+    left: <%= t[:left] %>px;
+  }
+  100% {
+    left: <%= t[:left] - 2000 %>px;
+    animation-timing-function: linear;
+  }
+}
+
+#tube-1-<%= i %> {
+  position: absolute;
+  background-image: url(./images/tube1.png);
+  width: <%= ::TUBE_WIDTH %>px;
+  height: <%= ::TUBE_HEIGHT %>px;
+  left: <%= t[:left] %>px;
+  top: <%= -::TUBE_HEIGHT + t[:top] %>px;
+}
+
+#tube-2-<%= i %> {
+  position: absolute;
+  background-image: url(./images/tube2.png);
+  width: <%= ::TUBE_WIDTH %>px;
+  height: <%= ::TUBE_HEIGHT %>px;
+  left: <%= t[:left] %>px;
+  top: <%= t[:top] + t[:space] %>px;
+}
+
+#tube-1-collision-<%= i %> {
+  position: absolute;
+  background: black;
+  background: transparent;
+  width: <%= ::TUBE_WIDTH %>px;
+  height: <%= ::BACKGROUND_HEIGHT %>px;
+  left: <%= t[:left] %>px;
+  top: <%= - (t[:top] + t[:space]) - ((::SCREEN_HEIGHT - 26) / 2 / 1.3) - 10 %>px;
+}
+
+#tube-2-collision-<%= i %> {
+  position: absolute;
+  background: black;
+  background: transparent;
+  width: <%= ::TUBE_WIDTH %>px;
+  height: <%= ::SCREEN_HEIGHT %>px;
+  left: <%= t[:left] %>px;
+  top: <%= ::BACKGROUND_HEIGHT - t[:top] - ((::SCREEN_HEIGHT - 26) / 2 / 1.3) + 10 %>px;
+}
+
+.jump-input-0:checked ~ #screen #tube-1-<%= i %>,
+.jump-input-0:checked ~ #screen #tube-2-<%= i %>,
+.jump-input-0:checked ~ #screen #tube-1-collision-<%= i %>,
+.jump-input-0:checked ~ #screen #tube-2-collision-<%= i %>
+{
+  animation-name: tube-<%= i %>;
+  animation-duration: 30s;
+}
+<% end %>
+
+#start {
+  position: absolute;
+  width: <%= ::SCREEN_WIDTH %>px;
+  text-align: center;
+  color: white;
+}
+
+#start-button {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 200%;
+  line-height: 0.9em;
+}
+
+.jump-input-0:checked ~ #screen #start {
+  display: none;
+}
+
+#footer {
+  position: absolute;
+  top: <%= ::SCREEN_HEIGHT %>px;
+  height: <%= ::SCREEN_HEIGHT %>px;
+  width: <%= ::SCREEN_WIDTH %>px;
+  background: white;
+  z-index: 99999;
+  font-size: 80%;
+}
+
+.note {
+  font-size: 80%;
+}
+
+
+@media (max-width: 420px) {
+  #screen {
+    overflow: hidden;
+  }
+}

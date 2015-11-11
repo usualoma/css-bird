@@ -1,0 +1,110 @@
+<% load './public/constant.rb' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Bird - a clone of Flappy Bird</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="/style.css" type="text/css" media="screen,print" />
+  </head>
+  <body>
+    <div id="container">
+
+      <input type="radio" name="gameover-input" id="gameover-input" class="finish-input" />
+      <input type="radio" name="thanks-input" id="thanks-input" class="finish-input" />
+
+      <% 0.upto(::SCREEN_HEIGHT / ::MESH_UNIT) do |i| %>
+        <% 0.upto(::SCREEN_WIDTH / ::MESH_UNIT) do |j| %>
+          <input type="checkbox" id="jump-input-0-<%= i %>-<%= j %>" class="jump-input-0 jump-input jump-input-row-<%= i %> jump-input-col-<%= j %>" />
+        <% end %>
+      <% end %>
+
+      <% 1.upto ::JUMP_LAYERS do |i| %>
+      <input type="checkbox" id="jump-input-<%= i %>" class="jump-input" />
+      <% end %>
+
+      <div id="screen">
+
+        <% 0.upto(::SCREEN_HEIGHT / ::MESH_UNIT) do |i| %>
+          <% 0.upto(::SCREEN_WIDTH / ::MESH_UNIT) do |j| %>
+            <div id="mesh-<%= i %>-<%= j %>" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-<%= i %>-<%= j %>">
+            </div>
+          <% end %>
+        <% end %>
+
+        <div id="start">
+          <p id="start-button">
+          Tap to start!
+          </p>
+
+          <p class="note">
+          Please tap the same point while playing.
+          </p>
+
+          <p class="note">
+          開始後はできるだけ同じ場所をタップしてください。
+          </p>
+        </div>
+
+        <% 0.upto ::JUMP_LAYERS do |i| %>
+        <div id="jump-layer-<%= i %>" class="jump-layer">
+
+          <label id="jump-label-<%= i+1 %>" class="jump-label" for="jump-input-<%= i+1 %>">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          <% ::TUBES.each_with_index do |t, i| %>
+            <div id="tube-1-collision-<%= i %>" class="tube-collision"></div>
+            <div id="tube-2-collision-<%= i %>" class="tube-collision"></div>
+          <% end %>
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover<% if i == ::JUMP_LAYERS %> last<% end %>"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks<% if i == ::JUMP_LAYERS %> last<% end %>"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        <% end %>
+
+          <div id="bird"><div id="bird-image"></div></div>
+
+        <% ::JUMP_LAYERS.downto 0 do |i| %>
+        </div><!-- jump-layer-<%= i %> -->
+        <% end %>
+
+        <div id="congrat-message">Congratulations!</div>
+
+        <div id="tube-container">
+        <% ::TUBES.each_with_index do |t, i| %>
+        <div id="tube-1-<%= i %>" class="tube"></div>
+        <div id="tube-2-<%= i %>" class="tube"></div>
+        <% end %>
+        </div>
+
+        <div id="ground"></div>
+      </div>
+
+      <div id="footer">
+        This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bird" target="_blank">Wikipedia</a>).<br />
+        All images provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
+        Contributed to <a href="http://nseg.jp/" target="_blank">NSEG</a> <a href="http://www.adventar.org/calendars/808" target="_blank">Advent Calendar 2015</a>.
+      </div>
+    </div>
+  </body>
+</html>
