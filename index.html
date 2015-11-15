@@ -1,0 +1,2192 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS Bird - a clone of Flappy Bird</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="//usualoma.github.io/css-bird/public/style.css" type="text/css" media="screen,print" />
+  </head>
+  <body>
+    <div id="container">
+
+      <input type="radio" name="gameover-input" id="gameover-input" class="finish-input" />
+      <input type="radio" name="thanks-input" id="thanks-input" class="finish-input" />
+
+      
+        
+          <input type="checkbox" id="jump-input-0-0-0" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-0-1" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-0-2" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-0-3" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-0-4" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-0-5" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-0-6" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-0-7" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-0-8" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-0-9" class="jump-input-0 jump-input jump-input-row-0 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-1-0" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-1-1" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-1-2" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-1-3" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-1-4" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-1-5" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-1-6" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-1-7" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-1-8" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-1-9" class="jump-input-0 jump-input jump-input-row-1 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-2-0" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-2-1" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-2-2" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-2-3" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-2-4" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-2-5" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-2-6" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-2-7" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-2-8" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-2-9" class="jump-input-0 jump-input jump-input-row-2 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-3-0" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-3-1" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-3-2" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-3-3" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-3-4" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-3-5" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-3-6" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-3-7" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-3-8" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-3-9" class="jump-input-0 jump-input jump-input-row-3 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-4-0" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-4-1" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-4-2" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-4-3" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-4-4" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-4-5" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-4-6" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-4-7" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-4-8" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-4-9" class="jump-input-0 jump-input jump-input-row-4 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-5-0" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-5-1" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-5-2" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-5-3" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-5-4" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-5-5" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-5-6" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-5-7" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-5-8" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-5-9" class="jump-input-0 jump-input jump-input-row-5 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-6-0" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-6-1" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-6-2" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-6-3" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-6-4" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-6-5" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-6-6" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-6-7" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-6-8" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-6-9" class="jump-input-0 jump-input jump-input-row-6 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-7-0" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-7-1" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-7-2" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-7-3" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-7-4" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-7-5" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-7-6" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-7-7" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-7-8" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-7-9" class="jump-input-0 jump-input jump-input-row-7 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-8-0" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-8-1" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-8-2" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-8-3" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-8-4" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-8-5" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-8-6" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-8-7" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-8-8" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-8-9" class="jump-input-0 jump-input jump-input-row-8 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-9-0" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-9-1" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-9-2" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-9-3" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-9-4" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-9-5" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-9-6" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-9-7" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-9-8" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-9-9" class="jump-input-0 jump-input jump-input-row-9 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-10-0" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-10-1" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-10-2" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-10-3" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-10-4" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-10-5" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-10-6" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-10-7" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-10-8" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-10-9" class="jump-input-0 jump-input jump-input-row-10 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-11-0" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-11-1" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-11-2" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-11-3" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-11-4" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-11-5" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-11-6" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-11-7" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-11-8" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-11-9" class="jump-input-0 jump-input jump-input-row-11 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-12-0" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-12-1" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-12-2" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-12-3" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-12-4" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-12-5" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-12-6" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-12-7" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-12-8" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-12-9" class="jump-input-0 jump-input jump-input-row-12 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-13-0" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-13-1" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-13-2" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-13-3" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-13-4" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-13-5" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-13-6" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-13-7" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-13-8" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-13-9" class="jump-input-0 jump-input jump-input-row-13 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-14-0" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-14-1" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-14-2" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-14-3" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-14-4" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-14-5" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-14-6" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-14-7" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-14-8" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-14-9" class="jump-input-0 jump-input jump-input-row-14 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-15-0" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-15-1" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-15-2" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-15-3" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-15-4" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-15-5" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-15-6" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-15-7" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-15-8" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-15-9" class="jump-input-0 jump-input jump-input-row-15 jump-input-col-9" />
+        
+      
+        
+          <input type="checkbox" id="jump-input-0-16-0" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-0" />
+        
+          <input type="checkbox" id="jump-input-0-16-1" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-1" />
+        
+          <input type="checkbox" id="jump-input-0-16-2" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-2" />
+        
+          <input type="checkbox" id="jump-input-0-16-3" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-3" />
+        
+          <input type="checkbox" id="jump-input-0-16-4" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-4" />
+        
+          <input type="checkbox" id="jump-input-0-16-5" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-5" />
+        
+          <input type="checkbox" id="jump-input-0-16-6" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-6" />
+        
+          <input type="checkbox" id="jump-input-0-16-7" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-7" />
+        
+          <input type="checkbox" id="jump-input-0-16-8" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-8" />
+        
+          <input type="checkbox" id="jump-input-0-16-9" class="jump-input-0 jump-input jump-input-row-16 jump-input-col-9" />
+        
+      
+
+      
+      <input type="checkbox" id="jump-input-1" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-2" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-3" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-4" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-5" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-6" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-7" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-8" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-9" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-10" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-11" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-12" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-13" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-14" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-15" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-16" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-17" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-18" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-19" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-20" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-21" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-22" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-23" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-24" class="jump-input" />
+      
+      <input type="checkbox" id="jump-input-25" class="jump-input" />
+      
+
+      <div id="screen">
+
+        
+          
+            <div id="mesh-0-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-0"></label>
+            </div>
+          
+            <div id="mesh-0-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-1"></label>
+            </div>
+          
+            <div id="mesh-0-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-2"></label>
+            </div>
+          
+            <div id="mesh-0-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-3"></label>
+            </div>
+          
+            <div id="mesh-0-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-4"></label>
+            </div>
+          
+            <div id="mesh-0-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-5"></label>
+            </div>
+          
+            <div id="mesh-0-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-6"></label>
+            </div>
+          
+            <div id="mesh-0-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-7"></label>
+            </div>
+          
+            <div id="mesh-0-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-8"></label>
+            </div>
+          
+            <div id="mesh-0-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-0-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-1-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-0"></label>
+            </div>
+          
+            <div id="mesh-1-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-1"></label>
+            </div>
+          
+            <div id="mesh-1-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-2"></label>
+            </div>
+          
+            <div id="mesh-1-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-3"></label>
+            </div>
+          
+            <div id="mesh-1-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-4"></label>
+            </div>
+          
+            <div id="mesh-1-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-5"></label>
+            </div>
+          
+            <div id="mesh-1-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-6"></label>
+            </div>
+          
+            <div id="mesh-1-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-7"></label>
+            </div>
+          
+            <div id="mesh-1-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-8"></label>
+            </div>
+          
+            <div id="mesh-1-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-1-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-2-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-0"></label>
+            </div>
+          
+            <div id="mesh-2-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-1"></label>
+            </div>
+          
+            <div id="mesh-2-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-2"></label>
+            </div>
+          
+            <div id="mesh-2-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-3"></label>
+            </div>
+          
+            <div id="mesh-2-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-4"></label>
+            </div>
+          
+            <div id="mesh-2-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-5"></label>
+            </div>
+          
+            <div id="mesh-2-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-6"></label>
+            </div>
+          
+            <div id="mesh-2-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-7"></label>
+            </div>
+          
+            <div id="mesh-2-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-8"></label>
+            </div>
+          
+            <div id="mesh-2-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-2-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-3-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-0"></label>
+            </div>
+          
+            <div id="mesh-3-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-1"></label>
+            </div>
+          
+            <div id="mesh-3-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-2"></label>
+            </div>
+          
+            <div id="mesh-3-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-3"></label>
+            </div>
+          
+            <div id="mesh-3-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-4"></label>
+            </div>
+          
+            <div id="mesh-3-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-5"></label>
+            </div>
+          
+            <div id="mesh-3-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-6"></label>
+            </div>
+          
+            <div id="mesh-3-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-7"></label>
+            </div>
+          
+            <div id="mesh-3-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-8"></label>
+            </div>
+          
+            <div id="mesh-3-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-3-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-4-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-0"></label>
+            </div>
+          
+            <div id="mesh-4-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-1"></label>
+            </div>
+          
+            <div id="mesh-4-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-2"></label>
+            </div>
+          
+            <div id="mesh-4-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-3"></label>
+            </div>
+          
+            <div id="mesh-4-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-4"></label>
+            </div>
+          
+            <div id="mesh-4-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-5"></label>
+            </div>
+          
+            <div id="mesh-4-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-6"></label>
+            </div>
+          
+            <div id="mesh-4-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-7"></label>
+            </div>
+          
+            <div id="mesh-4-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-8"></label>
+            </div>
+          
+            <div id="mesh-4-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-4-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-5-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-0"></label>
+            </div>
+          
+            <div id="mesh-5-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-1"></label>
+            </div>
+          
+            <div id="mesh-5-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-2"></label>
+            </div>
+          
+            <div id="mesh-5-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-3"></label>
+            </div>
+          
+            <div id="mesh-5-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-4"></label>
+            </div>
+          
+            <div id="mesh-5-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-5"></label>
+            </div>
+          
+            <div id="mesh-5-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-6"></label>
+            </div>
+          
+            <div id="mesh-5-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-7"></label>
+            </div>
+          
+            <div id="mesh-5-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-8"></label>
+            </div>
+          
+            <div id="mesh-5-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-5-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-6-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-0"></label>
+            </div>
+          
+            <div id="mesh-6-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-1"></label>
+            </div>
+          
+            <div id="mesh-6-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-2"></label>
+            </div>
+          
+            <div id="mesh-6-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-3"></label>
+            </div>
+          
+            <div id="mesh-6-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-4"></label>
+            </div>
+          
+            <div id="mesh-6-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-5"></label>
+            </div>
+          
+            <div id="mesh-6-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-6"></label>
+            </div>
+          
+            <div id="mesh-6-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-7"></label>
+            </div>
+          
+            <div id="mesh-6-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-8"></label>
+            </div>
+          
+            <div id="mesh-6-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-6-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-7-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-0"></label>
+            </div>
+          
+            <div id="mesh-7-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-1"></label>
+            </div>
+          
+            <div id="mesh-7-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-2"></label>
+            </div>
+          
+            <div id="mesh-7-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-3"></label>
+            </div>
+          
+            <div id="mesh-7-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-4"></label>
+            </div>
+          
+            <div id="mesh-7-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-5"></label>
+            </div>
+          
+            <div id="mesh-7-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-6"></label>
+            </div>
+          
+            <div id="mesh-7-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-7"></label>
+            </div>
+          
+            <div id="mesh-7-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-8"></label>
+            </div>
+          
+            <div id="mesh-7-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-7-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-8-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-0"></label>
+            </div>
+          
+            <div id="mesh-8-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-1"></label>
+            </div>
+          
+            <div id="mesh-8-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-2"></label>
+            </div>
+          
+            <div id="mesh-8-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-3"></label>
+            </div>
+          
+            <div id="mesh-8-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-4"></label>
+            </div>
+          
+            <div id="mesh-8-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-5"></label>
+            </div>
+          
+            <div id="mesh-8-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-6"></label>
+            </div>
+          
+            <div id="mesh-8-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-7"></label>
+            </div>
+          
+            <div id="mesh-8-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-8"></label>
+            </div>
+          
+            <div id="mesh-8-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-8-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-9-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-0"></label>
+            </div>
+          
+            <div id="mesh-9-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-1"></label>
+            </div>
+          
+            <div id="mesh-9-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-2"></label>
+            </div>
+          
+            <div id="mesh-9-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-3"></label>
+            </div>
+          
+            <div id="mesh-9-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-4"></label>
+            </div>
+          
+            <div id="mesh-9-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-5"></label>
+            </div>
+          
+            <div id="mesh-9-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-6"></label>
+            </div>
+          
+            <div id="mesh-9-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-7"></label>
+            </div>
+          
+            <div id="mesh-9-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-8"></label>
+            </div>
+          
+            <div id="mesh-9-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-9-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-10-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-0"></label>
+            </div>
+          
+            <div id="mesh-10-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-1"></label>
+            </div>
+          
+            <div id="mesh-10-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-2"></label>
+            </div>
+          
+            <div id="mesh-10-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-3"></label>
+            </div>
+          
+            <div id="mesh-10-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-4"></label>
+            </div>
+          
+            <div id="mesh-10-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-5"></label>
+            </div>
+          
+            <div id="mesh-10-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-6"></label>
+            </div>
+          
+            <div id="mesh-10-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-7"></label>
+            </div>
+          
+            <div id="mesh-10-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-8"></label>
+            </div>
+          
+            <div id="mesh-10-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-10-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-11-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-0"></label>
+            </div>
+          
+            <div id="mesh-11-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-1"></label>
+            </div>
+          
+            <div id="mesh-11-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-2"></label>
+            </div>
+          
+            <div id="mesh-11-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-3"></label>
+            </div>
+          
+            <div id="mesh-11-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-4"></label>
+            </div>
+          
+            <div id="mesh-11-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-5"></label>
+            </div>
+          
+            <div id="mesh-11-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-6"></label>
+            </div>
+          
+            <div id="mesh-11-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-7"></label>
+            </div>
+          
+            <div id="mesh-11-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-8"></label>
+            </div>
+          
+            <div id="mesh-11-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-11-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-12-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-0"></label>
+            </div>
+          
+            <div id="mesh-12-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-1"></label>
+            </div>
+          
+            <div id="mesh-12-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-2"></label>
+            </div>
+          
+            <div id="mesh-12-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-3"></label>
+            </div>
+          
+            <div id="mesh-12-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-4"></label>
+            </div>
+          
+            <div id="mesh-12-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-5"></label>
+            </div>
+          
+            <div id="mesh-12-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-6"></label>
+            </div>
+          
+            <div id="mesh-12-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-7"></label>
+            </div>
+          
+            <div id="mesh-12-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-8"></label>
+            </div>
+          
+            <div id="mesh-12-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-12-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-13-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-0"></label>
+            </div>
+          
+            <div id="mesh-13-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-1"></label>
+            </div>
+          
+            <div id="mesh-13-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-2"></label>
+            </div>
+          
+            <div id="mesh-13-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-3"></label>
+            </div>
+          
+            <div id="mesh-13-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-4"></label>
+            </div>
+          
+            <div id="mesh-13-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-5"></label>
+            </div>
+          
+            <div id="mesh-13-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-6"></label>
+            </div>
+          
+            <div id="mesh-13-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-7"></label>
+            </div>
+          
+            <div id="mesh-13-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-8"></label>
+            </div>
+          
+            <div id="mesh-13-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-13-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-14-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-0"></label>
+            </div>
+          
+            <div id="mesh-14-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-1"></label>
+            </div>
+          
+            <div id="mesh-14-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-2"></label>
+            </div>
+          
+            <div id="mesh-14-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-3"></label>
+            </div>
+          
+            <div id="mesh-14-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-4"></label>
+            </div>
+          
+            <div id="mesh-14-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-5"></label>
+            </div>
+          
+            <div id="mesh-14-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-6"></label>
+            </div>
+          
+            <div id="mesh-14-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-7"></label>
+            </div>
+          
+            <div id="mesh-14-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-8"></label>
+            </div>
+          
+            <div id="mesh-14-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-14-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-15-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-0"></label>
+            </div>
+          
+            <div id="mesh-15-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-1"></label>
+            </div>
+          
+            <div id="mesh-15-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-2"></label>
+            </div>
+          
+            <div id="mesh-15-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-3"></label>
+            </div>
+          
+            <div id="mesh-15-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-4"></label>
+            </div>
+          
+            <div id="mesh-15-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-5"></label>
+            </div>
+          
+            <div id="mesh-15-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-6"></label>
+            </div>
+          
+            <div id="mesh-15-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-7"></label>
+            </div>
+          
+            <div id="mesh-15-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-8"></label>
+            </div>
+          
+            <div id="mesh-15-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-15-9"></label>
+            </div>
+          
+        
+          
+            <div id="mesh-16-0" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-0"></label>
+            </div>
+          
+            <div id="mesh-16-1" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-1"></label>
+            </div>
+          
+            <div id="mesh-16-2" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-2"></label>
+            </div>
+          
+            <div id="mesh-16-3" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-3"></label>
+            </div>
+          
+            <div id="mesh-16-4" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-4"></label>
+            </div>
+          
+            <div id="mesh-16-5" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-5"></label>
+            </div>
+          
+            <div id="mesh-16-6" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-6"></label>
+            </div>
+          
+            <div id="mesh-16-7" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-7"></label>
+            </div>
+          
+            <div id="mesh-16-8" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-8"></label>
+            </div>
+          
+            <div id="mesh-16-9" class="mesh">
+              <label class="jump-label-0" for="jump-input-0-16-9"></label>
+            </div>
+          
+        
+
+        <div id="start">
+          <p id="start-button">
+          Tap to start!
+          </p>
+
+          <p class="note">
+          Please tap the same point while playing.
+          </p>
+
+          <p class="note">
+          開始後はできるだけ同じ場所をタップしてください。
+          </p>
+        </div>
+
+        
+        <div id="jump-layer-0" class="jump-layer">
+
+          <label id="jump-label-1" class="jump-label" for="jump-input-1">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-1" class="jump-layer">
+
+          <label id="jump-label-2" class="jump-label" for="jump-input-2">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-2" class="jump-layer">
+
+          <label id="jump-label-3" class="jump-label" for="jump-input-3">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-3" class="jump-layer">
+
+          <label id="jump-label-4" class="jump-label" for="jump-input-4">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-4" class="jump-layer">
+
+          <label id="jump-label-5" class="jump-label" for="jump-input-5">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-5" class="jump-layer">
+
+          <label id="jump-label-6" class="jump-label" for="jump-input-6">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-6" class="jump-layer">
+
+          <label id="jump-label-7" class="jump-label" for="jump-input-7">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-7" class="jump-layer">
+
+          <label id="jump-label-8" class="jump-label" for="jump-input-8">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-8" class="jump-layer">
+
+          <label id="jump-label-9" class="jump-label" for="jump-input-9">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-9" class="jump-layer">
+
+          <label id="jump-label-10" class="jump-label" for="jump-input-10">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-10" class="jump-layer">
+
+          <label id="jump-label-11" class="jump-label" for="jump-input-11">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-11" class="jump-layer">
+
+          <label id="jump-label-12" class="jump-label" for="jump-input-12">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-12" class="jump-layer">
+
+          <label id="jump-label-13" class="jump-label" for="jump-input-13">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-13" class="jump-layer">
+
+          <label id="jump-label-14" class="jump-label" for="jump-input-14">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-14" class="jump-layer">
+
+          <label id="jump-label-15" class="jump-label" for="jump-input-15">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-15" class="jump-layer">
+
+          <label id="jump-label-16" class="jump-label" for="jump-input-16">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-16" class="jump-layer">
+
+          <label id="jump-label-17" class="jump-label" for="jump-input-17">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-17" class="jump-layer">
+
+          <label id="jump-label-18" class="jump-label" for="jump-input-18">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-18" class="jump-layer">
+
+          <label id="jump-label-19" class="jump-label" for="jump-input-19">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-19" class="jump-layer">
+
+          <label id="jump-label-20" class="jump-label" for="jump-input-20">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-20" class="jump-layer">
+
+          <label id="jump-label-21" class="jump-label" for="jump-input-21">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-21" class="jump-layer">
+
+          <label id="jump-label-22" class="jump-label" for="jump-input-22">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-22" class="jump-layer">
+
+          <label id="jump-label-23" class="jump-label" for="jump-input-23">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-23" class="jump-layer">
+
+          <label id="jump-label-24" class="jump-label" for="jump-input-24">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-24" class="jump-layer">
+
+          <label id="jump-label-25" class="jump-label" for="jump-input-25">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+        <div id="jump-layer-25" class="jump-layer">
+
+          <label id="jump-label-26" class="jump-label" for="jump-input-26">
+          <div class="collision-group">
+
+            <div class="ground-collision"></div>
+
+          
+            <div id="tube-1-collision-0" class="tube-collision"></div>
+            <div id="tube-2-collision-0" class="tube-collision"></div>
+          
+            <div id="tube-1-collision-1" class="tube-collision"></div>
+            <div id="tube-2-collision-1" class="tube-collision"></div>
+          
+
+            <div class="goal-collision"></div>
+
+            <div class="gameover last"><label class="finish-label" for="gameover-input"><div class="finish-div"><div class="finish-content">
+
+              <span class="result">Game Over!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+            <div class="thanks last"><label class="finish-label" for="thanks-input"><div class="finish-div"><div class="finish-content">
+              <span class="result">Congratulations!</span><br />
+              Thank you for playing this game!<br />
+              <form><button type="submit">Retry</button></form>
+
+            </div></div></label></div>
+
+          </div>
+
+          </label>
+        
+
+          <div id="bird"><div id="bird-image"></div></div>
+
+        
+        </div><!-- jump-layer-25 -->
+        
+        </div><!-- jump-layer-24 -->
+        
+        </div><!-- jump-layer-23 -->
+        
+        </div><!-- jump-layer-22 -->
+        
+        </div><!-- jump-layer-21 -->
+        
+        </div><!-- jump-layer-20 -->
+        
+        </div><!-- jump-layer-19 -->
+        
+        </div><!-- jump-layer-18 -->
+        
+        </div><!-- jump-layer-17 -->
+        
+        </div><!-- jump-layer-16 -->
+        
+        </div><!-- jump-layer-15 -->
+        
+        </div><!-- jump-layer-14 -->
+        
+        </div><!-- jump-layer-13 -->
+        
+        </div><!-- jump-layer-12 -->
+        
+        </div><!-- jump-layer-11 -->
+        
+        </div><!-- jump-layer-10 -->
+        
+        </div><!-- jump-layer-9 -->
+        
+        </div><!-- jump-layer-8 -->
+        
+        </div><!-- jump-layer-7 -->
+        
+        </div><!-- jump-layer-6 -->
+        
+        </div><!-- jump-layer-5 -->
+        
+        </div><!-- jump-layer-4 -->
+        
+        </div><!-- jump-layer-3 -->
+        
+        </div><!-- jump-layer-2 -->
+        
+        </div><!-- jump-layer-1 -->
+        
+        </div><!-- jump-layer-0 -->
+        
+
+        <div id="congrat-message">Congratulations!</div>
+
+        <div id="tube-container">
+        
+        <div id="tube-1-0" class="tube"></div>
+        <div id="tube-2-0" class="tube"></div>
+        
+        <div id="tube-1-1" class="tube"></div>
+        <div id="tube-2-1" class="tube"></div>
+        
+        </div>
+
+        <div id="ground"></div>
+      </div>
+
+      <div id="footer">
+        This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bird" target="_blank">Wikipedia</a>).<br />
+        All images provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
+        Contributed to <a href="http://nseg.jp/" target="_blank">NSEG</a> <a href="http://www.adventar.org/calendars/808" target="_blank">Advent Calendar 2015</a>.
+      </div>
+    </div>
+  </body>
+</html>

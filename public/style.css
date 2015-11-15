@@ -1,0 +1,4567 @@
+
+
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.finish-input {
+  display: none;
+}
+
+.jump-input {
+  display: none;
+}
+
+.gameover {
+  z-index: 99998;
+}
+
+.thanks {
+  z-index: 99999;
+}
+
+.gameover, .thanks {
+  position: absolute;
+  top: -496px;
+  width: 1000px;
+  height: 1488px;
+  display: none;
+}
+
+.finish-label {
+  display: block;
+  width: 1000px;
+  height: 1488px;
+}
+
+.finish-div {
+  position: absolute;
+  width: 288px;
+  height: 1488px;
+  overflow: hidden;
+}
+
+.gameover .finish-div {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.thanks .finish-div {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#gameover-input:checked ~ #screen .gameover.last,
+#thanks-input:checked ~ #screen .thanks.last,
+.gameover:hover, .thanks:hover
+{
+  display: block;
+}
+
+.result {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.finish-div form {
+  margin-top: 20px;
+}
+
+.finish-div button {
+  background: white;
+  padding: 5px 30px;
+  font-size: 120%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.finish-div button:hover {
+  background: #eee;
+}
+
+@keyframes finish {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 1488px;
+  }
+}
+
+.finish-div:hover .finish-content {
+  position: absolute;
+  background: white;
+  width: 288px;
+  padding: 50px 0;
+  text-align: center;
+  animation-name: finish;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.finish-content:hover {
+  animation-play-state: paused;
+}
+
+#gameover-input:checked ~ #screen .tube,
+#thanks-input:checked ~ #screen .tube,
+#gameover-input:checked ~ #screen .tube-collision,
+#thanks-input:checked ~ #screen .tube-collision,
+#gameover-input:checked ~ #screen .jump-layer,
+#thanks-input:checked ~ #screen .jump-layer,
+#gameover-input:checked ~ #screen .goal-collision,
+#thanks-input:checked ~ #screen .goal-collision,
+#gameover-input:checked ~ #screen #congrat-message,
+#thanks-input:checked ~ #screen #congrat-message,
+#gameover-input:checked ~ #screen #bird,
+#thanks-input:checked ~ #screen #bird {
+  animation-play-state: paused !important;
+}
+
+
+.ground-collision {
+  position: absolute;
+  top: -610.7692307692307px;
+  left: -288px;
+  width: 576px;
+  height: 496px;
+  background: black;
+  background: transparent;
+}
+
+.ground-collision:hover ~ .gameover,
+.tube-collision:hover ~ .gameover
+{
+  display: block;
+}
+
+#congrat-message {
+  position: absolute;
+  left: 700px;
+  width: 200px;
+  top: 50px;
+  height: 200px;
+  background: black;
+  background: transparent;
+  color: white;
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 200%;
+  line-height: 0.9em;
+}
+
+@keyframes congrat-message {
+  0% {
+    left: 700px;
+  }
+  100% {
+    left: -1300px;
+    animation-timing-function: linear;
+  }
+}
+
+.jump-input-0:checked ~ #screen #congrat-message {
+  animation-name: congrat-message;
+  animation-duration: 30s;
+}
+
+.goal-collision {
+  position: absolute;
+  left: 700px;
+  width: 1000px;
+  top: -496px;
+  height: 992px;
+  background: black;
+  background: transparent;
+}
+
+@keyframes goal {
+  0% {
+    left: 700px;
+  }
+  100% {
+    left: -1300px;
+    animation-timing-function: linear;
+  }
+}
+
+.jump-input-0:checked ~ #screen .goal-collision {
+  animation-name: goal;
+  animation-duration: 30s;
+}
+
+.goal-collision:hover ~ .thanks {
+  display: block;
+}
+
+
+#bird {
+  position: absolute;
+  top: 180.76923076923077px;
+  left: 63px;
+  width: 36px;
+  height: 26px;
+}
+
+@keyframes bird-image {
+  0%   {
+    background-position: 0     0;
+  }
+  100% {
+    background-position: -108px 0;
+  }
+}
+
+#bird-image {
+  background-image: url(./images/bird.png);
+  width: 36px;
+  height: 26px;
+  animation: bird-image 500ms steps(3) 0s infinite;
+}
+
+.jump-label {
+  position: absolute;
+  top: -496px;
+  left: 0;
+  width: 288px;
+  height: 992px;
+  z-index: 0;
+}
+
+#screen {
+  position: relative;
+  background-image: url(./images/bg.png);
+  position: relative;
+  width: 288px;
+  height: 496px;
+  overflow: visible;
+}
+
+@keyframes ground {
+  0% {
+    background-position: 288px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+#ground {
+  background-image: url(./images/ground.png);
+  background-repeat: repeat;
+  position: absolute;
+  bottom: 0;
+  width: 288px;
+  height: 112px;
+  animation-name: ground;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#screen .jump-layer {
+  position: relative;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* http://matthewlein.com/ceaser/ */
+@keyframes jump {
+  0% {
+    top: 0;
+  }
+  15% {
+    top: -25px;
+    animation-timing-function: cubic-bezier(0.490, 1.035, 1.000, 1.000);
+  }
+  100% {
+    top: 300px;
+    animation-timing-function: cubic-bezier(0.315, -0.020, 0.240, 1.200);
+  }
+}
+
+
+@keyframes bird-jump-0 {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(-20deg);
+  }
+  15% {
+    transform: rotate(-20deg);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes bird-jump-1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  5% {
+    transform: rotate(-20deg);
+  }
+  15% {
+    transform: rotate(-20deg);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+
+.jump-input-0:checked ~ #screen #jump-layer-0 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+.jump-input-0:checked ~ #jump-input-1:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-0:checked ~ #jump-input-1:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-0:checked ~ #screen #jump-layer-0 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-1:checked ~ #screen #jump-layer-0 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-1:checked ~ #jump-input-2:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-1:checked ~ #screen #jump-layer-1 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-2:checked ~ #screen #jump-layer-1 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-2:checked ~ #jump-input-3:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-2:checked ~ #screen #jump-layer-2 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-3:checked ~ #screen #jump-layer-2 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-3:checked ~ #jump-input-4:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-3:checked ~ #screen #jump-layer-3 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-4:checked ~ #screen #jump-layer-3 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-4:checked ~ #jump-input-5:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-4:checked ~ #screen #jump-layer-4 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-5:checked ~ #screen #jump-layer-4 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-5:checked ~ #jump-input-6:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-5:checked ~ #screen #jump-layer-5 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-6:checked ~ #screen #jump-layer-5 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-6:checked ~ #jump-input-7:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-6:checked ~ #screen #jump-layer-6 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-7:checked ~ #screen #jump-layer-6 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-7:checked ~ #jump-input-8:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-7:checked ~ #screen #jump-layer-7 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-8:checked ~ #screen #jump-layer-7 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-8:checked ~ #jump-input-9:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-8:checked ~ #screen #jump-layer-8 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-9:checked ~ #screen #jump-layer-8 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-9:checked ~ #jump-input-10:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-9:checked ~ #screen #jump-layer-9 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-10:checked ~ #screen #jump-layer-9 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-10:checked ~ #jump-input-11:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-10:checked ~ #screen #jump-layer-10 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-11:checked ~ #screen #jump-layer-10 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-11:checked ~ #jump-input-12:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-11:checked ~ #screen #jump-layer-11 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-12:checked ~ #screen #jump-layer-11 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-12:checked ~ #jump-input-13:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-12:checked ~ #screen #jump-layer-12 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-13:checked ~ #screen #jump-layer-12 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-13:checked ~ #jump-input-14:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-13:checked ~ #screen #jump-layer-13 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-14:checked ~ #screen #jump-layer-13 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-14:checked ~ #jump-input-15:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-14:checked ~ #screen #jump-layer-14 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-15:checked ~ #screen #jump-layer-14 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-15:checked ~ #jump-input-16:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-15:checked ~ #screen #jump-layer-15 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-16:checked ~ #screen #jump-layer-15 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-16:checked ~ #jump-input-17:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-16:checked ~ #screen #jump-layer-16 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-17:checked ~ #screen #jump-layer-16 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-17:checked ~ #jump-input-18:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-17:checked ~ #screen #jump-layer-17 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-18:checked ~ #screen #jump-layer-17 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-18:checked ~ #jump-input-19:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-18:checked ~ #screen #jump-layer-18 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-19:checked ~ #screen #jump-layer-18 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-19:checked ~ #jump-input-20:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-19:checked ~ #screen #jump-layer-19 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-20:checked ~ #screen #jump-layer-19 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-20:checked ~ #jump-input-21:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-20:checked ~ #screen #jump-layer-20 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-21:checked ~ #screen #jump-layer-20 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-21:checked ~ #jump-input-22:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-21:checked ~ #screen #jump-layer-21 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-22:checked ~ #screen #jump-layer-21 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-22:checked ~ #jump-input-23:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-22:checked ~ #screen #jump-layer-22 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-23:checked ~ #screen #jump-layer-22 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-23:checked ~ #jump-input-24:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-23:checked ~ #screen #jump-layer-23 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-24:checked ~ #screen #jump-layer-23 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-24:checked ~ #jump-input-25:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-0;
+  animation-duration: 2s;
+}
+
+#jump-input-24:checked ~ #screen #jump-layer-24 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-25:checked ~ #screen #jump-layer-24 {
+  animation-play-state: paused;
+}
+
+.jump-input-0:checked ~ #screen #bird,
+#jump-input-25:checked ~ #jump-input-26:not(:checked) ~ #screen #bird {
+  animation-name: bird-jump-1;
+  animation-duration: 2s;
+}
+
+#jump-input-25:checked ~ #screen #jump-layer-25 {
+  animation-name: jump;
+  animation-duration: 2s;
+}
+
+#jump-input-26:checked ~ #screen #jump-layer-25 {
+  animation-play-state: paused;
+}
+
+
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-0:checked ~ #screen #jump-label-1 {
+  background: white;
+  background: transparent;
+  z-index: 1001;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-1:checked ~ #screen #jump-label-2 {
+  background: white;
+  background: transparent;
+  z-index: 1002;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-2:checked ~ #screen #jump-label-3 {
+  background: white;
+  background: transparent;
+  z-index: 1003;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-3:checked ~ #screen #jump-label-4 {
+  background: white;
+  background: transparent;
+  z-index: 1004;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-4:checked ~ #screen #jump-label-5 {
+  background: white;
+  background: transparent;
+  z-index: 1005;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-5:checked ~ #screen #jump-label-6 {
+  background: white;
+  background: transparent;
+  z-index: 1006;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-6:checked ~ #screen #jump-label-7 {
+  background: white;
+  background: transparent;
+  z-index: 1007;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-7:checked ~ #screen #jump-label-8 {
+  background: white;
+  background: transparent;
+  z-index: 1008;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-8:checked ~ #screen #jump-label-9 {
+  background: white;
+  background: transparent;
+  z-index: 1009;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-9:checked ~ #screen #jump-label-10 {
+  background: white;
+  background: transparent;
+  z-index: 1010;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-10:checked ~ #screen #jump-label-11 {
+  background: white;
+  background: transparent;
+  z-index: 1011;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-11:checked ~ #screen #jump-label-12 {
+  background: white;
+  background: transparent;
+  z-index: 1012;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-12:checked ~ #screen #jump-label-13 {
+  background: white;
+  background: transparent;
+  z-index: 1013;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-13:checked ~ #screen #jump-label-14 {
+  background: white;
+  background: transparent;
+  z-index: 1014;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-14:checked ~ #screen #jump-label-15 {
+  background: white;
+  background: transparent;
+  z-index: 1015;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-15:checked ~ #screen #jump-label-16 {
+  background: white;
+  background: transparent;
+  z-index: 1016;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-16:checked ~ #screen #jump-label-17 {
+  background: white;
+  background: transparent;
+  z-index: 1017;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-17:checked ~ #screen #jump-label-18 {
+  background: white;
+  background: transparent;
+  z-index: 1018;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-18:checked ~ #screen #jump-label-19 {
+  background: white;
+  background: transparent;
+  z-index: 1019;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-19:checked ~ #screen #jump-label-20 {
+  background: white;
+  background: transparent;
+  z-index: 1020;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-20:checked ~ #screen #jump-label-21 {
+  background: white;
+  background: transparent;
+  z-index: 1021;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-21:checked ~ #screen #jump-label-22 {
+  background: white;
+  background: transparent;
+  z-index: 1022;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-22:checked ~ #screen #jump-label-23 {
+  background: white;
+  background: transparent;
+  z-index: 1023;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-23:checked ~ #screen #jump-label-24 {
+  background: white;
+  background: transparent;
+  z-index: 1024;
+}
+
+.jump-input-0:checked ~ #screen #jump-label-1 {
+  z-index: 1001;
+}
+#jump-input-24:checked ~ #screen #jump-label-25 {
+  background: white;
+  background: transparent;
+  z-index: 1025;
+}
+
+
+
+.collision-group {
+  overflow: visible;
+  position: relative;
+  top: 496px;
+}
+
+
+#mesh-0-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-0-0:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-0-0:checked ~ #screen .gameover,
+#jump-input-0-0-0:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: 15.0px;
+}
+
+#mesh-0-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-0-1:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-0-1:checked ~ #screen .gameover,
+#jump-input-0-0-1:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -15.0px;
+}
+
+#mesh-0-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-0-2:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-0-2:checked ~ #screen .gameover,
+#jump-input-0-0-2:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -45.0px;
+}
+
+#mesh-0-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-0-3:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-0-3:checked ~ #screen .gameover,
+#jump-input-0-0-3:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -75.0px;
+}
+
+#mesh-0-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-0-4:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-0-4:checked ~ #screen .gameover,
+#jump-input-0-0-4:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -105.0px;
+}
+
+#mesh-0-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-0-5:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-0-5:checked ~ #screen .gameover,
+#jump-input-0-0-5:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -135.0px;
+}
+
+#mesh-0-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-0-6:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-0-6:checked ~ #screen .gameover,
+#jump-input-0-0-6:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -165.0px;
+}
+
+#mesh-0-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-0-7:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-0-7:checked ~ #screen .gameover,
+#jump-input-0-0-7:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -195.0px;
+}
+
+#mesh-0-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-0-8:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-0-8:checked ~ #screen .gameover,
+#jump-input-0-0-8:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -225.0px;
+}
+
+#mesh-0-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 0px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-0-9:checked ~ #screen .collision-group {
+  top: 481.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-0-9:checked ~ #screen .gameover,
+#jump-input-0-0-9:checked ~ #screen .thanks
+{
+  top: -481.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-1-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-1-0:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-1-0:checked ~ #screen .gameover,
+#jump-input-0-1-0:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: 15.0px;
+}
+
+#mesh-1-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-1-1:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-1-1:checked ~ #screen .gameover,
+#jump-input-0-1-1:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -15.0px;
+}
+
+#mesh-1-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-1-2:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-1-2:checked ~ #screen .gameover,
+#jump-input-0-1-2:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -45.0px;
+}
+
+#mesh-1-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-1-3:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-1-3:checked ~ #screen .gameover,
+#jump-input-0-1-3:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -75.0px;
+}
+
+#mesh-1-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-1-4:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-1-4:checked ~ #screen .gameover,
+#jump-input-0-1-4:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -105.0px;
+}
+
+#mesh-1-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-1-5:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-1-5:checked ~ #screen .gameover,
+#jump-input-0-1-5:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -135.0px;
+}
+
+#mesh-1-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-1-6:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-1-6:checked ~ #screen .gameover,
+#jump-input-0-1-6:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -165.0px;
+}
+
+#mesh-1-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-1-7:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-1-7:checked ~ #screen .gameover,
+#jump-input-0-1-7:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -195.0px;
+}
+
+#mesh-1-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-1-8:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-1-8:checked ~ #screen .gameover,
+#jump-input-0-1-8:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -225.0px;
+}
+
+#mesh-1-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 30px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-1-9:checked ~ #screen .collision-group {
+  top: 511.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-1-9:checked ~ #screen .gameover,
+#jump-input-0-1-9:checked ~ #screen .thanks
+{
+  top: -511.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-2-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-2-0:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-2-0:checked ~ #screen .gameover,
+#jump-input-0-2-0:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: 15.0px;
+}
+
+#mesh-2-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-2-1:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-2-1:checked ~ #screen .gameover,
+#jump-input-0-2-1:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -15.0px;
+}
+
+#mesh-2-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-2-2:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-2-2:checked ~ #screen .gameover,
+#jump-input-0-2-2:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -45.0px;
+}
+
+#mesh-2-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-2-3:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-2-3:checked ~ #screen .gameover,
+#jump-input-0-2-3:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -75.0px;
+}
+
+#mesh-2-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-2-4:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-2-4:checked ~ #screen .gameover,
+#jump-input-0-2-4:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -105.0px;
+}
+
+#mesh-2-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-2-5:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-2-5:checked ~ #screen .gameover,
+#jump-input-0-2-5:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -135.0px;
+}
+
+#mesh-2-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-2-6:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-2-6:checked ~ #screen .gameover,
+#jump-input-0-2-6:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -165.0px;
+}
+
+#mesh-2-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-2-7:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-2-7:checked ~ #screen .gameover,
+#jump-input-0-2-7:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -195.0px;
+}
+
+#mesh-2-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-2-8:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-2-8:checked ~ #screen .gameover,
+#jump-input-0-2-8:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -225.0px;
+}
+
+#mesh-2-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 60px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-2-9:checked ~ #screen .collision-group {
+  top: 541.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-2-9:checked ~ #screen .gameover,
+#jump-input-0-2-9:checked ~ #screen .thanks
+{
+  top: -541.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-3-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-3-0:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-3-0:checked ~ #screen .gameover,
+#jump-input-0-3-0:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: 15.0px;
+}
+
+#mesh-3-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-3-1:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-3-1:checked ~ #screen .gameover,
+#jump-input-0-3-1:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -15.0px;
+}
+
+#mesh-3-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-3-2:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-3-2:checked ~ #screen .gameover,
+#jump-input-0-3-2:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -45.0px;
+}
+
+#mesh-3-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-3-3:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-3-3:checked ~ #screen .gameover,
+#jump-input-0-3-3:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -75.0px;
+}
+
+#mesh-3-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-3-4:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-3-4:checked ~ #screen .gameover,
+#jump-input-0-3-4:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -105.0px;
+}
+
+#mesh-3-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-3-5:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-3-5:checked ~ #screen .gameover,
+#jump-input-0-3-5:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -135.0px;
+}
+
+#mesh-3-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-3-6:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-3-6:checked ~ #screen .gameover,
+#jump-input-0-3-6:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -165.0px;
+}
+
+#mesh-3-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-3-7:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-3-7:checked ~ #screen .gameover,
+#jump-input-0-3-7:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -195.0px;
+}
+
+#mesh-3-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-3-8:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-3-8:checked ~ #screen .gameover,
+#jump-input-0-3-8:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -225.0px;
+}
+
+#mesh-3-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 90px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-3-9:checked ~ #screen .collision-group {
+  top: 571.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-3-9:checked ~ #screen .gameover,
+#jump-input-0-3-9:checked ~ #screen .thanks
+{
+  top: -571.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-4-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-4-0:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-4-0:checked ~ #screen .gameover,
+#jump-input-0-4-0:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: 15.0px;
+}
+
+#mesh-4-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-4-1:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-4-1:checked ~ #screen .gameover,
+#jump-input-0-4-1:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -15.0px;
+}
+
+#mesh-4-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-4-2:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-4-2:checked ~ #screen .gameover,
+#jump-input-0-4-2:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -45.0px;
+}
+
+#mesh-4-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-4-3:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-4-3:checked ~ #screen .gameover,
+#jump-input-0-4-3:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -75.0px;
+}
+
+#mesh-4-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-4-4:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-4-4:checked ~ #screen .gameover,
+#jump-input-0-4-4:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -105.0px;
+}
+
+#mesh-4-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-4-5:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-4-5:checked ~ #screen .gameover,
+#jump-input-0-4-5:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -135.0px;
+}
+
+#mesh-4-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-4-6:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-4-6:checked ~ #screen .gameover,
+#jump-input-0-4-6:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -165.0px;
+}
+
+#mesh-4-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-4-7:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-4-7:checked ~ #screen .gameover,
+#jump-input-0-4-7:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -195.0px;
+}
+
+#mesh-4-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-4-8:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-4-8:checked ~ #screen .gameover,
+#jump-input-0-4-8:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -225.0px;
+}
+
+#mesh-4-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 120px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-4-9:checked ~ #screen .collision-group {
+  top: 601.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-4-9:checked ~ #screen .gameover,
+#jump-input-0-4-9:checked ~ #screen .thanks
+{
+  top: -601.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-5-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-5-0:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-5-0:checked ~ #screen .gameover,
+#jump-input-0-5-0:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: 15.0px;
+}
+
+#mesh-5-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-5-1:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-5-1:checked ~ #screen .gameover,
+#jump-input-0-5-1:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -15.0px;
+}
+
+#mesh-5-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-5-2:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-5-2:checked ~ #screen .gameover,
+#jump-input-0-5-2:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -45.0px;
+}
+
+#mesh-5-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-5-3:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-5-3:checked ~ #screen .gameover,
+#jump-input-0-5-3:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -75.0px;
+}
+
+#mesh-5-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-5-4:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-5-4:checked ~ #screen .gameover,
+#jump-input-0-5-4:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -105.0px;
+}
+
+#mesh-5-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-5-5:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-5-5:checked ~ #screen .gameover,
+#jump-input-0-5-5:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -135.0px;
+}
+
+#mesh-5-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-5-6:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-5-6:checked ~ #screen .gameover,
+#jump-input-0-5-6:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -165.0px;
+}
+
+#mesh-5-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-5-7:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-5-7:checked ~ #screen .gameover,
+#jump-input-0-5-7:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -195.0px;
+}
+
+#mesh-5-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-5-8:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-5-8:checked ~ #screen .gameover,
+#jump-input-0-5-8:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -225.0px;
+}
+
+#mesh-5-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 150px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-5-9:checked ~ #screen .collision-group {
+  top: 631.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-5-9:checked ~ #screen .gameover,
+#jump-input-0-5-9:checked ~ #screen .thanks
+{
+  top: -631.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-6-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-6-0:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-6-0:checked ~ #screen .gameover,
+#jump-input-0-6-0:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: 15.0px;
+}
+
+#mesh-6-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-6-1:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-6-1:checked ~ #screen .gameover,
+#jump-input-0-6-1:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -15.0px;
+}
+
+#mesh-6-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-6-2:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-6-2:checked ~ #screen .gameover,
+#jump-input-0-6-2:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -45.0px;
+}
+
+#mesh-6-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-6-3:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-6-3:checked ~ #screen .gameover,
+#jump-input-0-6-3:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -75.0px;
+}
+
+#mesh-6-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-6-4:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-6-4:checked ~ #screen .gameover,
+#jump-input-0-6-4:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -105.0px;
+}
+
+#mesh-6-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-6-5:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-6-5:checked ~ #screen .gameover,
+#jump-input-0-6-5:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -135.0px;
+}
+
+#mesh-6-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-6-6:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-6-6:checked ~ #screen .gameover,
+#jump-input-0-6-6:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -165.0px;
+}
+
+#mesh-6-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-6-7:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-6-7:checked ~ #screen .gameover,
+#jump-input-0-6-7:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -195.0px;
+}
+
+#mesh-6-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-6-8:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-6-8:checked ~ #screen .gameover,
+#jump-input-0-6-8:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -225.0px;
+}
+
+#mesh-6-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 180px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-6-9:checked ~ #screen .collision-group {
+  top: 661.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-6-9:checked ~ #screen .gameover,
+#jump-input-0-6-9:checked ~ #screen .thanks
+{
+  top: -661.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-7-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-7-0:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-7-0:checked ~ #screen .gameover,
+#jump-input-0-7-0:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: 15.0px;
+}
+
+#mesh-7-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-7-1:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-7-1:checked ~ #screen .gameover,
+#jump-input-0-7-1:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -15.0px;
+}
+
+#mesh-7-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-7-2:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-7-2:checked ~ #screen .gameover,
+#jump-input-0-7-2:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -45.0px;
+}
+
+#mesh-7-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-7-3:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-7-3:checked ~ #screen .gameover,
+#jump-input-0-7-3:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -75.0px;
+}
+
+#mesh-7-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-7-4:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-7-4:checked ~ #screen .gameover,
+#jump-input-0-7-4:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -105.0px;
+}
+
+#mesh-7-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-7-5:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-7-5:checked ~ #screen .gameover,
+#jump-input-0-7-5:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -135.0px;
+}
+
+#mesh-7-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-7-6:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-7-6:checked ~ #screen .gameover,
+#jump-input-0-7-6:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -165.0px;
+}
+
+#mesh-7-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-7-7:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-7-7:checked ~ #screen .gameover,
+#jump-input-0-7-7:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -195.0px;
+}
+
+#mesh-7-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-7-8:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-7-8:checked ~ #screen .gameover,
+#jump-input-0-7-8:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -225.0px;
+}
+
+#mesh-7-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 210px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-7-9:checked ~ #screen .collision-group {
+  top: 691.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-7-9:checked ~ #screen .gameover,
+#jump-input-0-7-9:checked ~ #screen .thanks
+{
+  top: -691.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-8-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-8-0:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-8-0:checked ~ #screen .gameover,
+#jump-input-0-8-0:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: 15.0px;
+}
+
+#mesh-8-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-8-1:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-8-1:checked ~ #screen .gameover,
+#jump-input-0-8-1:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -15.0px;
+}
+
+#mesh-8-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-8-2:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-8-2:checked ~ #screen .gameover,
+#jump-input-0-8-2:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -45.0px;
+}
+
+#mesh-8-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-8-3:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-8-3:checked ~ #screen .gameover,
+#jump-input-0-8-3:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -75.0px;
+}
+
+#mesh-8-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-8-4:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-8-4:checked ~ #screen .gameover,
+#jump-input-0-8-4:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -105.0px;
+}
+
+#mesh-8-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-8-5:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-8-5:checked ~ #screen .gameover,
+#jump-input-0-8-5:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -135.0px;
+}
+
+#mesh-8-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-8-6:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-8-6:checked ~ #screen .gameover,
+#jump-input-0-8-6:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -165.0px;
+}
+
+#mesh-8-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-8-7:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-8-7:checked ~ #screen .gameover,
+#jump-input-0-8-7:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -195.0px;
+}
+
+#mesh-8-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-8-8:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-8-8:checked ~ #screen .gameover,
+#jump-input-0-8-8:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -225.0px;
+}
+
+#mesh-8-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 240px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-8-9:checked ~ #screen .collision-group {
+  top: 721.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-8-9:checked ~ #screen .gameover,
+#jump-input-0-8-9:checked ~ #screen .thanks
+{
+  top: -721.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-9-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-9-0:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-9-0:checked ~ #screen .gameover,
+#jump-input-0-9-0:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: 15.0px;
+}
+
+#mesh-9-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-9-1:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-9-1:checked ~ #screen .gameover,
+#jump-input-0-9-1:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -15.0px;
+}
+
+#mesh-9-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-9-2:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-9-2:checked ~ #screen .gameover,
+#jump-input-0-9-2:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -45.0px;
+}
+
+#mesh-9-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-9-3:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-9-3:checked ~ #screen .gameover,
+#jump-input-0-9-3:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -75.0px;
+}
+
+#mesh-9-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-9-4:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-9-4:checked ~ #screen .gameover,
+#jump-input-0-9-4:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -105.0px;
+}
+
+#mesh-9-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-9-5:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-9-5:checked ~ #screen .gameover,
+#jump-input-0-9-5:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -135.0px;
+}
+
+#mesh-9-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-9-6:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-9-6:checked ~ #screen .gameover,
+#jump-input-0-9-6:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -165.0px;
+}
+
+#mesh-9-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-9-7:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-9-7:checked ~ #screen .gameover,
+#jump-input-0-9-7:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -195.0px;
+}
+
+#mesh-9-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-9-8:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-9-8:checked ~ #screen .gameover,
+#jump-input-0-9-8:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -225.0px;
+}
+
+#mesh-9-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 270px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-9-9:checked ~ #screen .collision-group {
+  top: 751.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-9-9:checked ~ #screen .gameover,
+#jump-input-0-9-9:checked ~ #screen .thanks
+{
+  top: -751.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-10-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-10-0:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-10-0:checked ~ #screen .gameover,
+#jump-input-0-10-0:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: 15.0px;
+}
+
+#mesh-10-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-10-1:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-10-1:checked ~ #screen .gameover,
+#jump-input-0-10-1:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -15.0px;
+}
+
+#mesh-10-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-10-2:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-10-2:checked ~ #screen .gameover,
+#jump-input-0-10-2:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -45.0px;
+}
+
+#mesh-10-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-10-3:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-10-3:checked ~ #screen .gameover,
+#jump-input-0-10-3:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -75.0px;
+}
+
+#mesh-10-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-10-4:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-10-4:checked ~ #screen .gameover,
+#jump-input-0-10-4:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -105.0px;
+}
+
+#mesh-10-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-10-5:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-10-5:checked ~ #screen .gameover,
+#jump-input-0-10-5:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -135.0px;
+}
+
+#mesh-10-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-10-6:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-10-6:checked ~ #screen .gameover,
+#jump-input-0-10-6:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -165.0px;
+}
+
+#mesh-10-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-10-7:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-10-7:checked ~ #screen .gameover,
+#jump-input-0-10-7:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -195.0px;
+}
+
+#mesh-10-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-10-8:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-10-8:checked ~ #screen .gameover,
+#jump-input-0-10-8:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -225.0px;
+}
+
+#mesh-10-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 300px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-10-9:checked ~ #screen .collision-group {
+  top: 781.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-10-9:checked ~ #screen .gameover,
+#jump-input-0-10-9:checked ~ #screen .thanks
+{
+  top: -781.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-11-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-11-0:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-11-0:checked ~ #screen .gameover,
+#jump-input-0-11-0:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: 15.0px;
+}
+
+#mesh-11-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-11-1:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-11-1:checked ~ #screen .gameover,
+#jump-input-0-11-1:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -15.0px;
+}
+
+#mesh-11-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-11-2:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-11-2:checked ~ #screen .gameover,
+#jump-input-0-11-2:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -45.0px;
+}
+
+#mesh-11-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-11-3:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-11-3:checked ~ #screen .gameover,
+#jump-input-0-11-3:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -75.0px;
+}
+
+#mesh-11-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-11-4:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-11-4:checked ~ #screen .gameover,
+#jump-input-0-11-4:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -105.0px;
+}
+
+#mesh-11-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-11-5:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-11-5:checked ~ #screen .gameover,
+#jump-input-0-11-5:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -135.0px;
+}
+
+#mesh-11-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-11-6:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-11-6:checked ~ #screen .gameover,
+#jump-input-0-11-6:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -165.0px;
+}
+
+#mesh-11-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-11-7:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-11-7:checked ~ #screen .gameover,
+#jump-input-0-11-7:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -195.0px;
+}
+
+#mesh-11-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-11-8:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-11-8:checked ~ #screen .gameover,
+#jump-input-0-11-8:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -225.0px;
+}
+
+#mesh-11-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 330px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-11-9:checked ~ #screen .collision-group {
+  top: 811.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-11-9:checked ~ #screen .gameover,
+#jump-input-0-11-9:checked ~ #screen .thanks
+{
+  top: -811.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-12-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-12-0:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-12-0:checked ~ #screen .gameover,
+#jump-input-0-12-0:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: 15.0px;
+}
+
+#mesh-12-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-12-1:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-12-1:checked ~ #screen .gameover,
+#jump-input-0-12-1:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -15.0px;
+}
+
+#mesh-12-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-12-2:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-12-2:checked ~ #screen .gameover,
+#jump-input-0-12-2:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -45.0px;
+}
+
+#mesh-12-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-12-3:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-12-3:checked ~ #screen .gameover,
+#jump-input-0-12-3:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -75.0px;
+}
+
+#mesh-12-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-12-4:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-12-4:checked ~ #screen .gameover,
+#jump-input-0-12-4:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -105.0px;
+}
+
+#mesh-12-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-12-5:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-12-5:checked ~ #screen .gameover,
+#jump-input-0-12-5:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -135.0px;
+}
+
+#mesh-12-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-12-6:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-12-6:checked ~ #screen .gameover,
+#jump-input-0-12-6:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -165.0px;
+}
+
+#mesh-12-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-12-7:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-12-7:checked ~ #screen .gameover,
+#jump-input-0-12-7:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -195.0px;
+}
+
+#mesh-12-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-12-8:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-12-8:checked ~ #screen .gameover,
+#jump-input-0-12-8:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -225.0px;
+}
+
+#mesh-12-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 360px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-12-9:checked ~ #screen .collision-group {
+  top: 841.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-12-9:checked ~ #screen .gameover,
+#jump-input-0-12-9:checked ~ #screen .thanks
+{
+  top: -841.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-13-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-13-0:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-13-0:checked ~ #screen .gameover,
+#jump-input-0-13-0:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: 15.0px;
+}
+
+#mesh-13-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-13-1:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-13-1:checked ~ #screen .gameover,
+#jump-input-0-13-1:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -15.0px;
+}
+
+#mesh-13-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-13-2:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-13-2:checked ~ #screen .gameover,
+#jump-input-0-13-2:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -45.0px;
+}
+
+#mesh-13-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-13-3:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-13-3:checked ~ #screen .gameover,
+#jump-input-0-13-3:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -75.0px;
+}
+
+#mesh-13-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-13-4:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-13-4:checked ~ #screen .gameover,
+#jump-input-0-13-4:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -105.0px;
+}
+
+#mesh-13-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-13-5:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-13-5:checked ~ #screen .gameover,
+#jump-input-0-13-5:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -135.0px;
+}
+
+#mesh-13-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-13-6:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-13-6:checked ~ #screen .gameover,
+#jump-input-0-13-6:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -165.0px;
+}
+
+#mesh-13-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-13-7:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-13-7:checked ~ #screen .gameover,
+#jump-input-0-13-7:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -195.0px;
+}
+
+#mesh-13-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-13-8:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-13-8:checked ~ #screen .gameover,
+#jump-input-0-13-8:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -225.0px;
+}
+
+#mesh-13-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 390px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-13-9:checked ~ #screen .collision-group {
+  top: 871.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-13-9:checked ~ #screen .gameover,
+#jump-input-0-13-9:checked ~ #screen .thanks
+{
+  top: -871.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-14-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-14-0:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-14-0:checked ~ #screen .gameover,
+#jump-input-0-14-0:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: 15.0px;
+}
+
+#mesh-14-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-14-1:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-14-1:checked ~ #screen .gameover,
+#jump-input-0-14-1:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -15.0px;
+}
+
+#mesh-14-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-14-2:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-14-2:checked ~ #screen .gameover,
+#jump-input-0-14-2:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -45.0px;
+}
+
+#mesh-14-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-14-3:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-14-3:checked ~ #screen .gameover,
+#jump-input-0-14-3:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -75.0px;
+}
+
+#mesh-14-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-14-4:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-14-4:checked ~ #screen .gameover,
+#jump-input-0-14-4:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -105.0px;
+}
+
+#mesh-14-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-14-5:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-14-5:checked ~ #screen .gameover,
+#jump-input-0-14-5:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -135.0px;
+}
+
+#mesh-14-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-14-6:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-14-6:checked ~ #screen .gameover,
+#jump-input-0-14-6:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -165.0px;
+}
+
+#mesh-14-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-14-7:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-14-7:checked ~ #screen .gameover,
+#jump-input-0-14-7:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -195.0px;
+}
+
+#mesh-14-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-14-8:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-14-8:checked ~ #screen .gameover,
+#jump-input-0-14-8:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -225.0px;
+}
+
+#mesh-14-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 420px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-14-9:checked ~ #screen .collision-group {
+  top: 901.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-14-9:checked ~ #screen .gameover,
+#jump-input-0-14-9:checked ~ #screen .thanks
+{
+  top: -901.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-15-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-15-0:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-15-0:checked ~ #screen .gameover,
+#jump-input-0-15-0:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: 15.0px;
+}
+
+#mesh-15-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-15-1:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-15-1:checked ~ #screen .gameover,
+#jump-input-0-15-1:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -15.0px;
+}
+
+#mesh-15-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-15-2:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-15-2:checked ~ #screen .gameover,
+#jump-input-0-15-2:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -45.0px;
+}
+
+#mesh-15-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-15-3:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-15-3:checked ~ #screen .gameover,
+#jump-input-0-15-3:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -75.0px;
+}
+
+#mesh-15-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-15-4:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-15-4:checked ~ #screen .gameover,
+#jump-input-0-15-4:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -105.0px;
+}
+
+#mesh-15-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-15-5:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-15-5:checked ~ #screen .gameover,
+#jump-input-0-15-5:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -135.0px;
+}
+
+#mesh-15-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-15-6:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-15-6:checked ~ #screen .gameover,
+#jump-input-0-15-6:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -165.0px;
+}
+
+#mesh-15-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-15-7:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-15-7:checked ~ #screen .gameover,
+#jump-input-0-15-7:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -195.0px;
+}
+
+#mesh-15-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-15-8:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-15-8:checked ~ #screen .gameover,
+#jump-input-0-15-8:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -225.0px;
+}
+
+#mesh-15-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 450px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-15-9:checked ~ #screen .collision-group {
+  top: 931.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-15-9:checked ~ #screen .gameover,
+#jump-input-0-15-9:checked ~ #screen .thanks
+{
+  top: -931.0px;
+  left: -255.0px;
+}
+
+
+
+#mesh-16-0 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 0px;
+  z-index: 9999;
+}
+#jump-input-0-16-0:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: -15.0px;
+}
+
+#jump-input-0-16-0:checked ~ #screen .gameover,
+#jump-input-0-16-0:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: 15.0px;
+}
+
+#mesh-16-1 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 30px;
+  z-index: 9999;
+}
+#jump-input-0-16-1:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 15.0px;
+}
+
+#jump-input-0-16-1:checked ~ #screen .gameover,
+#jump-input-0-16-1:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -15.0px;
+}
+
+#mesh-16-2 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 60px;
+  z-index: 9999;
+}
+#jump-input-0-16-2:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 45.0px;
+}
+
+#jump-input-0-16-2:checked ~ #screen .gameover,
+#jump-input-0-16-2:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -45.0px;
+}
+
+#mesh-16-3 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 90px;
+  z-index: 9999;
+}
+#jump-input-0-16-3:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 75.0px;
+}
+
+#jump-input-0-16-3:checked ~ #screen .gameover,
+#jump-input-0-16-3:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -75.0px;
+}
+
+#mesh-16-4 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 120px;
+  z-index: 9999;
+}
+#jump-input-0-16-4:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 105.0px;
+}
+
+#jump-input-0-16-4:checked ~ #screen .gameover,
+#jump-input-0-16-4:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -105.0px;
+}
+
+#mesh-16-5 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 150px;
+  z-index: 9999;
+}
+#jump-input-0-16-5:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 135.0px;
+}
+
+#jump-input-0-16-5:checked ~ #screen .gameover,
+#jump-input-0-16-5:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -135.0px;
+}
+
+#mesh-16-6 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 180px;
+  z-index: 9999;
+}
+#jump-input-0-16-6:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 165.0px;
+}
+
+#jump-input-0-16-6:checked ~ #screen .gameover,
+#jump-input-0-16-6:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -165.0px;
+}
+
+#mesh-16-7 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 210px;
+  z-index: 9999;
+}
+#jump-input-0-16-7:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 195.0px;
+}
+
+#jump-input-0-16-7:checked ~ #screen .gameover,
+#jump-input-0-16-7:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -195.0px;
+}
+
+#mesh-16-8 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 240px;
+  z-index: 9999;
+}
+#jump-input-0-16-8:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 225.0px;
+}
+
+#jump-input-0-16-8:checked ~ #screen .gameover,
+#jump-input-0-16-8:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -225.0px;
+}
+
+#mesh-16-9 {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 480px;
+  left: 270px;
+  z-index: 9999;
+}
+#jump-input-0-16-9:checked ~ #screen .collision-group {
+  top: 961.0px;
+  left: 255.0px;
+}
+
+#jump-input-0-16-9:checked ~ #screen .gameover,
+#jump-input-0-16-9:checked ~ #screen .thanks
+{
+  top: -961.0px;
+  left: -255.0px;
+}
+
+
+
+.jump-input-0:checked ~ #screen .mesh {
+  display: none;
+}
+
+.jump-label-0 {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#tube-container {
+  position: relative;
+  overflow: hidden;
+  width: 288px;
+  height: 496px;
+  background: transparent;
+}
+
+
+@keyframes tube-0 {
+  0% {
+    left: 300px;
+  }
+  100% {
+    left: -1700px;
+    animation-timing-function: linear;
+  }
+}
+
+#tube-1-0 {
+  position: absolute;
+  background-image: url(./images/tube1.png);
+  width: 52px;
+  height: 320px;
+  left: 300px;
+  top: -120px;
+}
+
+#tube-2-0 {
+  position: absolute;
+  background-image: url(./images/tube2.png);
+  width: 52px;
+  height: 320px;
+  left: 300px;
+  top: 270px;
+}
+
+#tube-1-collision-0 {
+  position: absolute;
+  background: black;
+  background: transparent;
+  width: 52px;
+  height: 384px;
+  left: 300px;
+  top: -460.7692307692308px;
+}
+
+#tube-2-collision-0 {
+  position: absolute;
+  background: black;
+  background: transparent;
+  width: 52px;
+  height: 496px;
+  left: 300px;
+  top: 13.230769230769226px;
+}
+
+.jump-input-0:checked ~ #screen #tube-1-0,
+.jump-input-0:checked ~ #screen #tube-2-0,
+.jump-input-0:checked ~ #screen #tube-1-collision-0,
+.jump-input-0:checked ~ #screen #tube-2-collision-0
+{
+  animation-name: tube-0;
+  animation-duration: 30s;
+}
+
+@keyframes tube-1 {
+  0% {
+    left: 500px;
+  }
+  100% {
+    left: -1500px;
+    animation-timing-function: linear;
+  }
+}
+
+#tube-1-1 {
+  position: absolute;
+  background-image: url(./images/tube1.png);
+  width: 52px;
+  height: 320px;
+  left: 500px;
+  top: -170px;
+}
+
+#tube-2-1 {
+  position: absolute;
+  background-image: url(./images/tube2.png);
+  width: 52px;
+  height: 320px;
+  left: 500px;
+  top: 220px;
+}
+
+#tube-1-collision-1 {
+  position: absolute;
+  background: black;
+  background: transparent;
+  width: 52px;
+  height: 384px;
+  left: 500px;
+  top: -410.7692307692308px;
+}
+
+#tube-2-collision-1 {
+  position: absolute;
+  background: black;
+  background: transparent;
+  width: 52px;
+  height: 496px;
+  left: 500px;
+  top: 63.230769230769226px;
+}
+
+.jump-input-0:checked ~ #screen #tube-1-1,
+.jump-input-0:checked ~ #screen #tube-2-1,
+.jump-input-0:checked ~ #screen #tube-1-collision-1,
+.jump-input-0:checked ~ #screen #tube-2-collision-1
+{
+  animation-name: tube-1;
+  animation-duration: 30s;
+}
+
+
+#start {
+  position: absolute;
+  width: 288px;
+  text-align: center;
+  color: white;
+}
+
+#start-button {
+  font-family: 'Indie Flower', cursive;
+  font-weight: bold;
+  font-size: 200%;
+  line-height: 0.9em;
+}
+
+.jump-input-0:checked ~ #screen #start {
+  display: none;
+}
+
+#footer {
+  position: absolute;
+  top: 496px;
+  height: 496px;
+  width: 288px;
+  background: white;
+  z-index: 99999;
+  font-size: 80%;
+}
+
+.note {
+  font-size: 80%;
+}
+
+
+@media (max-width: 420px) {
+  #screen {
+    overflow: hidden;
+  }
+}
