@@ -467,23 +467,37 @@ body {
   display: none;
 }
 
-#footer {
+#readme {
   position: absolute;
-  top: <%= ::SCREEN_HEIGHT %>px;
+  top: 0;
+  left: <%= ::SCREEN_WIDTH + 10 %>px;
   height: <%= ::SCREEN_HEIGHT %>px;
   width: <%= ::SCREEN_WIDTH %>px;
   background: white;
-  z-index: 99999;
   font-size: 80%;
+}
+
+#readme h1 {
+  margin-top: 0;
+  font-size: 150%;
+}
+
+#readme h2 {
+  font-size: 130%;
 }
 
 .note {
   font-size: 80%;
 }
 
-
 @media (max-width: 420px) {
   #screen {
     overflow: hidden;
+  }
+
+  #readme {
+    top: <%= ::SCREEN_HEIGHT %>px;
+    height: <%= ::SCREEN_HEIGHT %>px;
+    z-index: 99999;
   }
 }

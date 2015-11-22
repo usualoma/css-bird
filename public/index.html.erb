@@ -1,3 +1,4 @@
+<% require 'redcarpet' %>
 <% load './public/constant.rb' %>
 <!DOCTYPE html>
 <html>
@@ -5,7 +6,7 @@
     <meta charset="UTF-8" />
     <title>CSS Bird - a clone of Flappy Bird</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="//usualoma.github.io/css-bird/public/style.css" type="text/css" media="screen,print" />
+    <link rel="stylesheet" href="/style.css" type="text/css" media="screen,print" />
   </head>
   <body>
     <div id="container">
@@ -100,11 +101,10 @@
         <div id="ground"></div>
       </div>
 
-      <div id="footer">
-        This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bird" target="_blank">Wikipedia</a>).<br />
-        All images provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
-        Contributed to <a href="http://nseg.jp/" target="_blank">NSEG</a> <a href="http://www.adventar.org/calendars/808" target="_blank">Advent Calendar 2015</a>.
+      <div id="readme">
+        <%= Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(open('./README.md').read) %>
       </div>
+
     </div>
   </body>
 </html>

@@ -5,3 +5,6 @@ all:
 	erb public/checkboxs.html.erb > public/checkboxs.html
 	erb public/hover.html.erb > public/hover.html
 	erb public/animation.html.erb > public/animation.html
+
+clean:
+	rm -f public/*.html
