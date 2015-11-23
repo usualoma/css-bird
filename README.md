@@ -20,5 +20,5 @@ This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bi
 
 ## Thanks
 
-All images provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
+All images are provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
 Contributed to <a href="http://nseg.jp/" target="_blank">NSEG</a> <a href="http://www.adventar.org/calendars/808" target="_blank">Advent Calendar 2015</a>.
