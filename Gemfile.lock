@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.0.2)
     rack (1.6.4)
     rack-server-pages (0.0.6)
       rack
@@ -10,6 +11,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   rack-server-pages
   redcarpet
 
