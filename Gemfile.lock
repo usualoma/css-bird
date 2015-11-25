@@ -4,12 +4,14 @@ GEM
     rack (1.6.4)
     rack-server-pages (0.0.6)
       rack
+    redcarpet (3.3.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rack-server-pages
+  redcarpet
 
 BUNDLED WITH
    1.10.6
