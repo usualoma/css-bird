@@ -2,6 +2,8 @@
 
 A clone of Flappy Bird written in HTML and CSS without JavaScript.
 
+<img alt="Screenshot" src="https://raw.githubusercontent.com/usualoma/css-bird/master/artwork/screenshot.png" />
+
 ## Supported browsers
 
 * Desktop
