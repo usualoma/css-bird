@@ -1,13 +1,29 @@
+<%
+require 'erb'
+def loadERB(file)
+  begin
+    ERB.new(::File.read(file)).result(binding)
+  rescue
+    ''
+  end
+end
+%>
+<% require 'redcarpet' %>
 <% load './public/constant.rb' %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <title>CSS Bird - a clone of Flappy Bird</title>
+
+    <%= loadERB('./public/header.html.erb') %>
+
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./style.css" type="text/css" media="screen,print" />
   </head>
   <body>
+    <%= loadERB('./public/fork-me.html.erb') %>
     <div id="container">
 
       <input type="radio" name="gameover-input" id="gameover-input" class="finish-input" />
@@ -100,11 +116,19 @@
         <div id="ground"></div>
       </div>
 
-      <div id="footer">
-        This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bird" target="_blank">Wikipedia</a>).<br />
-        All images provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
-        Contributed to <a href="http://nseg.jp/" target="_blank">NSEG</a> <a href="http://www.adventar.org/calendars/808" target="_blank">Advent Calendar 2015</a>.
+      <div id="readme">
+        <%= loadERB('./public/social-buttons.html.erb') %>
+        <%=
+          Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+            .render(open('./README.md').read)
+            .gsub(/<img[^>]*?alt="screenshot"[^>]*?>/i, '')
+            .gsub(/id="link-to/i, '')
+            .gsub(/(id="linkToBlogPost")/, %q{\1 class="hidden"})
+        %>
       </div>
+
     </div>
+
+    <%= loadERB('./public/script.html.erb') %>
   </body>
 </html>

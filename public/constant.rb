@@ -1,3 +1,7 @@
+require 'dotenv'
+Dotenv.load
+
+
 JUMP_LAYERS=25
 
 MESH_UNIT=30

@@ -1,2 +1,6 @@
 public/*.html
 public/*.css
+public/header.html.erb
+public/fork-me.html.erb
+public/social-buttons.html.erb
+public/script.html.erb

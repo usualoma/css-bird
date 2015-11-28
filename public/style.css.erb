@@ -7,6 +7,18 @@ body {
   padding: 0;
 }
 
+.show {
+  display: block !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .finish-input {
   display: none;
 }
@@ -467,23 +479,79 @@ body {
   display: none;
 }
 
-#footer {
+#readme {
   position: absolute;
-  top: <%= ::SCREEN_HEIGHT %>px;
+  top: 0;
+  left: <%= ::SCREEN_WIDTH + 10 %>px;
   height: <%= ::SCREEN_HEIGHT %>px;
   width: <%= ::SCREEN_WIDTH %>px;
   background: white;
-  z-index: 99999;
   font-size: 80%;
+}
+
+#readme h1 {
+  margin-top: 0;
+  font-size: 150%;
+  display: none;
+}
+
+body:not(.single-page) #readme h1 + p {
+  margin-top: 0;
+}
+
+#fork-me img {
+  z-index: 99999;
+}
+
+#readme h2 {
+  font-size: 130%;
+}
+
+#social-buttons {
+  position: absolute;
+  top: <%= ::SCREEN_HEIGHT + 5 %>px;
+  left: <%= -(::SCREEN_WIDTH + 10) %>px;
+  z-index: 99999;
+  padding-left: 10px;
+}
+
+#social-buttons a,
+#social-buttons a:hover {
+  font-size: 21px;
+  color: #999;
+  text-decoration: none;
+  margin-right: 3px;
+}
+
+#social-buttons a:hover {
+  color: #333;
 }
 
 .note {
   font-size: 80%;
 }
 
-
 @media (max-width: 420px) {
   #screen {
     overflow: hidden;
+  }
+
+  #readme {
+    top: <%= ::SCREEN_HEIGHT %>px;
+    left: 0;
+    height: <%= ::SCREEN_HEIGHT %>px;
+    z-index: 99999;
+  }
+
+  #social-buttons {
+    position: relative;
+    padding-top: 10px;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+  }
+
+  #fork-me img {
+    display: none;
   }
 }
