@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+<style type="text/css">
+body {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+label {
+  display: block;
+  width: 100%;
+  height: 1000px;
+  position: absolute;
+  z-index: 1;
+}
+<% 0.upto(19) do |i| %>
+#cb-<%= i %>:checked ~ #label-<%= i+1 %> {
+  z-index: <%= i+2 %>;
+}
+<% end %>
+</style>
+  </head>
+  <body>
+    <form>
+    <% 0.upto(19) do |i| %>
+    <input type="checkbox" id="cb-<%= i %>" />
+    <% end %>
+    <input type="reset" id="reset" />
+    <label for="reset" id="label-20"></label>
+    <% 19.downto(0) do |i| %>
+    <label for="cb-<%= i %>" id="label-<%= i %>"></label>
+    <% end %>
+    </form>
+  </body>
+</html>
+

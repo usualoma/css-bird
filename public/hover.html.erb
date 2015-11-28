@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+<style type="text/css">
+label {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  z-index: 1;
+}
+#bird {
+  position: absolute;
+  background-image: url(./images/bird.png);
+  width: 36px;
+  height: 26px;
+  top: 100px;
+  left: 100px;
+}
+
+<% 0.upto(20) do |i| %>
+<% 0.upto(20) do |j| %>
+#l-<%= j %>-<%= i %> {
+  left: <%= i * 10 %>px;
+  top: <%= j * 10 %>px;
+}
+#l-<%= j %>-<%= i %>:hover ~ #bird {
+  transform: rotate(<%= Math::atan2((j-10)*10, (i-10)*10) * 180 / Math::PI %>deg);
+}
+<% end %>
+<% end %>
+</style>
+  </head>
+  <body>
+<% 0.upto(20) do |i| %>
+<% 0.upto(20) do |j| %>
+<label id="l-<%= i %>-<%= j %>"></label>
+<% end %>
+<% end %>
+<div id="bird"></div>
+  </body>
+</html>
+
