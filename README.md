@@ -1,8 +1,12 @@
 # CSS Bird
 
-A clone of Flappy Bird written in HTML and CSS without JavaScript.
+This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bird" target="_blank">Wikipedia</a>) written in HTML and CSS without JavaScript.
 
 <img alt="Screenshot" src="https://raw.githubusercontent.com/usualoma/css-bird/master/artwork/screenshot.png" />
+
+<p id="linkToBlogPost">
+<a href="//blog.taaas.jp/css/css-bird/index.html">Blog post</a>
+</p>
 
 ## Supported browsers
 
@@ -19,3 +23,8 @@ A clone of Flappy Bird written in HTML and CSS without JavaScript.
     * Safari 9
 * Mobile
     * Safari (iOS 9.1)
+
+## Thanks
+
+All images are provided by <a href="http://flappycreator.com/" target="_blank">Flappy Creator</a>.<br />
+Contributed to <a href="http://nseg.jp/" target="_blank">NSEG</a> <a href="http://www.adventar.org/calendars/808" target="_blank">Advent Calendar 2015</a>.
