@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title></title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-<style type="text/css">
-body {
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-label {
-  display: block;
-  width: 290px;
-  height: 280px;
-  position: absolute;
-  z-index: 1;
-  background: rgba(200, 200, 200, 0.5);
-}
-<% 0.upto(19) do |i| %>
-#cb-<%= i %>:checked ~ #label-<%= i+1 %> {
-  z-index: <%= i+2 %>;
-}
-<% end %>
-</style>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <style type="text/css">
+    body {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+    label {
+      display: block;
+      width: 290px;
+      height: 170px;
+      position: absolute;
+      z-index: 1;
+      background: rgba(230, 230, 230, 1);
+      padding-top: 110px;
+      text-align: center;
+    }
+    label.gameover {
+      background: rgba(240, 240, 240, 1);
+    }
+
+    <% 0.upto(9) do |i| %>
+    #cb-<%= i %>:checked ~ #layer-<%= i+1 %> {
+      z-index: <%= i+2 %>;
+    }
+    <% end %>
+    </style>
   </head>
   <body>
     <form>
-    <% 0.upto(19) do |i| %>
-    <input type="checkbox" id="cb-<%= i %>" />
-    <% end %>
-    <input type="reset" id="reset" />
-    <label for="reset" id="label-20"></label>
-    <% 19.downto(0) do |i| %>
-    <label for="cb-<%= i %>" id="label-<%= i %>">Tap here!</label>
-    <% end %>
+      <% 0.upto(9) do |i| %>
+      <input type="checkbox" id="cb-<%= i %>" />
+      <% end %>
+      <input type="reset" id="restart" />
+
+      <label for="restart" id="layer-10" class="gameover">Game over!<br/>&lt;label for="restart" id="layer-10"&gt;</label>
+      <% 9.downto(0) do |i| %>
+      <label for="cb-<%= i %>" id="layer-<%= i %>">Tap here!<br/>&lt;label for="cb-<%= i %>" id="layer-<%= i %>"&gt;</label>
+      <% end %>
     </form>
   </body>
 </html>
-

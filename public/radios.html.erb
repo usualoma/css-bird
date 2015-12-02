@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title></title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-<style type="text/css">
-body {
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-label {
-  display: block;
-  width: 100%;
-  height: 300px;
-  position: absolute;
-  z-index: 1;
-}
-<% 0.upto(9) do |i| %>
-#radio-<%= i %>:checked ~ #label-<%= i+1 %> {
-  z-index: <%= i+2 %>;
-}
-<% end %>
-</style>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <style type="text/css">
+    body {
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+
+    label {
+      display: block;
+      width: 290px;
+      height: 170px;
+      position: absolute;
+      z-index: 1;
+      background: rgb(230, 230, 230);
+      padding-top: 110px;
+      text-align: center;
+    }
+
+    <% 0.upto(9) do |i| %>
+    #radio-<%= i %>:checked ~ #layer-<%= i+1 %> {
+      z-index: <%= i+2 %>;
+    }
+    <% end %>
+    </style>
   </head>
   <body>
     <form>
-    <% 0.upto(9) do |i| %>
-    <input type="radio" name="radio" id="radio-<%= i %>" />
-    <% end %>
-    <% 9.downto(0) do |i| %>
-    <label for="radio-<%= i %>" id="label-<%= i %>"></label>
-    <% end %>
+      <% 0.upto(9) do |i| %>
+      <input type="radio" name="radio" id="radio-<%= i %>" />
+      <% end %>
+
+      <% 9.downto(0) do |i| %>
+      <label for="radio-<%= i %>" id="layer-<%= i %>">Tap here!<br/>&lt;label for="radio-<%= i %>" id="layer-<%= i %>"&gt;</label>
+      <% end %>
     </form>
   </body>
 </html>
-
