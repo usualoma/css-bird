@@ -5,7 +5,7 @@ This is a clone of Flappy Bird (<a href="https://en.wikipedia.org/wiki/Flappy_Bi
 <img alt="Screenshot" src="https://raw.githubusercontent.com/usualoma/css-bird/master/artwork/screenshot.png" />
 
 <p id="linkToBlogPost">
-<a href="//blog.taaas.jp/css/css-bird/index.html">Blog post</a>
+<a href="http://blog.taaas.jp/css/css-bird/index.html">Blog post</a>
 </p>
 
 ## Supported browsers
